@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Agencia1.Models.Pacote>
+
+@{
+    ViewData["Title"] = "Destinos";
+}
+
+<br />
+
+<div class="text-center">
+    <h1 class="display-4" style="text-align: center; color: #00008B; font-family:Verdana ; font-size: 40px;"> <b> Opções de Pacotes </b> </h1>
+    <br />
+    <br />
+</div>
+<h4> Enviaremos opções personalizadas conforme destino informado.</h4>
+
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Origem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retorno)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destino)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Retorno)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PacoteId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PacoteId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PacoteId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
